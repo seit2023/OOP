@@ -1,0 +1,43 @@
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class MyClass 
+{
+	public static void main(String args[])
+	{
+		Scanner s=new Scanner(System.in);
+		int num1,num2,result;
+		try
+		{
+			System.out.println("Enter 1st no:");
+			num1=s.nextInt();
+			System.out.println("Enter 2nd no:");
+			num2=s.nextInt();
+			result=num1/num2;
+			System.out.println("Division:" + result);
+			
+			int X[]=new int[10];
+			X[15]=result;
+		}
+		catch(InputMismatchException e)
+		{
+			System.out.println("Wrong Input\n");
+		}
+		catch(ArithmeticException e)
+		{
+			System.out.println("Denominator is zero \n Re Enter num2");
+			num2=s.nextInt();
+		}
+		catch(ArrayIndexOutOfBoundsException e)
+		{
+			System.out.println("Array index is greater than 9\n");
+
+		}
+		finally
+		{
+			System.out.println("Program terminate");
+			s.close();
+		}
+	}
+}
